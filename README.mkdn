@@ -30,3 +30,18 @@ lunch lineage_$codename-bp4a-user
 ```
 m bacon -j$(nproc --all)
 ```
+
+Feature source policy
+---------------
+
+RealizeUI uses the Lunaris 16.2 framework stack as its initial feature donor.
+That stack already integrates the Axion SDK and is declared separately in
+`snippets/realizeui-features.xml` so it can be replaced incrementally with
+RealizeUI forks.
+
+The donor Settings applications and customization frontends are intentionally
+excluded. `packages/apps/Settings` is maintained by RealizeUI on branch `16`,
+and all RealizeUI feature preferences must be implemented there. RealizeUI also
+keeps its own `vendor/lineage`; packages from the feature snippet must be added
+to RealizeUI product configuration explicitly before they are included in an
+image.
