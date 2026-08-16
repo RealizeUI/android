@@ -1,7 +1,7 @@
 Getting started
 ---------------
 
-To initialize the RealizeUI source tree, use:
+Initialize the RealizeUI:
 
 ```
 repo init -u https://github.com/RealizeUI/android.git -b 16 --git-lfs --depth 1
