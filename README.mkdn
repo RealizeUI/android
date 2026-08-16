@@ -1,27 +1,32 @@
-RealizeUI
-=========
-
-RealizeUI branch `16` is based on LineageOS 23.2.
-
 Getting started
 ---------------
 
 To initialize the RealizeUI source tree, use:
 
 ```
-repo init -u https://github.com/RealizeUI/android.git -b 16 --git-lfs
+repo init -u https://github.com/RealizeUI/android.git -b 16 --git-lfs --depth 1
 ```
 
-Then sync the source:
+
+Sync up
+---------------
 
 ```
-repo sync
+repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
 ```
 
-Device trees, kernels, and proprietary dependencies belong in a local
-manifest or a separate device manifest. They are intentionally not included
-in this ROM manifest.
+Build
+---------------
+•Set up the build environment:
+```
+. b*/env*
+```
 
-RealizeUI currently replaces `LineageOS/android_vendor_lineage` with
-`RealizeUI/android_vendor_lineage`. All other projects continue to track the
-LineageOS `lineage-23.2` base until a RealizeUI fork is needed.
+•Select target:
+```
+lunch lineage_$codename-bp4a-user
+```
+•To start compiling
+```
+m bacon -j$(nproc --all)
+```
